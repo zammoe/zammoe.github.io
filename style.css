@@ -19,6 +19,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  overflow: scroll;
 
 }
 
@@ -70,6 +71,7 @@ body {
   background-color: black;
   left: 20%;
   top: 0;
+  overflow: scroll;
   text-align: center;
 
 }
@@ -169,6 +171,7 @@ a:hover {
   color: white;
   opacity: 0.8;
   display: block;
+  overflow: scroll;
 
 }
 
@@ -184,6 +187,7 @@ a:hover {
   right:0;
   background-size: 800px;
   background-image: url("background.jpg");
+  overflow: scroll;
   background-color: black;
 }
 
