@@ -29,8 +29,8 @@ body {
 }
 
 .empty{
-  width: 70px;
-  height: 70px;
+  width: 28%;
+  height: 28%;
   position: relative;
   display: inline-block;
 }
