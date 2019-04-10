@@ -14,10 +14,6 @@ body {
   display: none;
 }
 
-::-moz-scrollbar{
-  display: none;
-}
-
 
 .left {
   height: 100%;
