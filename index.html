@@ -7,164 +7,10 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 
-  <script type="text/javascript">
-  // <![CDATA[
-  var colour="rgb(208, 208, 208)";
-  var sparkles=40;
 
-  var x=ox=400;
-  var y=oy=300;
-  var swide=800;
-  var shigh=600;
-  var sleft=sdown=0;
-  var tiny=new Array();
-  var star=new Array();
-  var starv=new Array();
-  var starx=new Array();
-  var stary=new Array();
-  var tinyx=new Array();
-  var tinyy=new Array();
-  var tinyv=new Array();
-  window.onload=function() { if (document.getElementById) {
-  var i, rats, rlef, rdow;
-  for (var i=0; i<sparkles; i++) {
-  var rats=createDiv(3, 3);
-  rats.style.visibility="hidden";
-  document.body.appendChild(tiny[i]=rats);
-  starv[i]=0;
-  tinyv[i]=0;
-  var rats=createDiv(5, 5);
-  rats.style.backgroundColor="transparent";
-  rats.style.visibility="hidden";
-  var rlef=createDiv(1, 5);
-  var rdow=createDiv(5, 1);
-  rats.appendChild(rlef);
-  rats.appendChild(rdow);
-  rlef.style.top="2px";
-  rlef.style.left="0px";
-  rdow.style.top="0px";
-  rdow.style.left="2px";
-  document.body.appendChild(star[i]=rats);
-  }
-  set_width();
-  sparkle();
-  }}
-  function sparkle() {
-  var c;
-  if (x!=ox || y!=oy) {
-  ox=x;
-  oy=y;
-  for (c=0; c<sparkles; c++) if (!starv[c]) {
-  star[c].style.left=(starx[c]=x)+"px";
-  star[c].style.top=(stary[c]=y)+"px";
-  star[c].style.clip="rect(0px, 5px, 5px, 0px)";
-  star[c].style.visibility="visible";
-  starv[c]=50;
-  break;
-  }
-  }
-  for (c=0; c<sparkles; c++) {
-  if (starv[c]) update_star(c);
-  if (tinyv[c]) update_tiny(c);
-  }
-  setTimeout("sparkle()", 40);
-  }
-  function update_star(i) {
-  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
-  if (starv[i]) {
-  stary[i]+=1+Math.random()*3;
-  if (stary[i]<shigh+sdown) {
-  star[i].style.top=stary[i]+"px";
-  starx[i]+=(i%5-2)/5;
-  star[i].style.left=starx[i]+"px";
-  }
-  else {
-  star[i].style.visibility="hidden";
-  starv[i]=0;
-  return;
-  }
-  }
-  else {
-  tinyv[i]=50;
-  tiny[i].style.top=(tinyy[i]=stary[i])+"px";
-  tiny[i].style.left=(tinyx[i]=starx[i])+"px";
-  tiny[i].style.width="2px";
-  tiny[i].style.height="2px";
-  star[i].style.visibility="hidden";
-  tiny[i].style.visibility="visible"
-  }
-  }
-  function update_tiny(i) {
-  if (--tinyv[i]==25) {
-  tiny[i].style.width="1px";
-  tiny[i].style.height="1px";
-  }
-  if (tinyv[i]) {
-  tinyy[i]+=1+Math.random()*3;
-  if (tinyy[i]<shigh+sdown) {
-  tiny[i].style.top=tinyy[i]+"px";
-  tinyx[i]+=(i%5-2)/5;
-  tiny[i].style.left=tinyx[i]+"px";
-  }
-  else {
-  tiny[i].style.visibility="hidden";
-  tinyv[i]=0;
-  return;
-  }
-  }
-  else tiny[i].style.visibility="hidden";
-  }
-  document.onmousemove=mouse;
-  function mouse(e) {
-  set_scroll();
-  y=(e)?e.pageY:event.y+sdown;
-  x=(e)?e.pageX:event.x+sleft;
-  }
-  function set_scroll() {
-  if (typeof(self.pageYOffset)=="number") {
-  sdown=self.pageYOffset;
-  sleft=self.pageXOffset;
-  }
-  else if (document.body.scrollTop || document.body.scrollLeft) {
-  sdown=document.body.scrollTop;
-  sleft=document.body.scrollLeft;
-  }
-  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-  sleft=document.documentElement.scrollLeft;
-  sdown=document.documentElement.scrollTop;
-  }
-  else {
-  sdown=0;
-  sleft=0;
-  }
-  }
-  window.onresize=set_width;
-  function set_width() {
-  if (typeof(self.innerWidth)=="number") {
-  swide=self.innerWidth;
-  shigh=self.innerHeight;
-  }
-  else if (document.documentElement && document.documentElement.clientWidth) {
-  swide=document.documentElement.clientWidth;
-  shigh=document.documentElement.clientHeight;
-  }
-  else if (document.body.clientWidth) {
-  swide=document.body.clientWidth;
-  shigh=document.body.clientHeight;
-  }
-  }
-  function createDiv(height, width) {
-  var div=document.createElement("div");
-  div.style.position="absolute";
-  div.style.height=height+"px";
-  div.style.width=width+"px";
-  div.style.overflow="hidden";
-  div.style.backgroundColor=colour;
-  return (div);
-  }
-  // ]]>
-  </script>
 
 
   <script src="jquery.min.js"></script>
@@ -172,42 +18,80 @@
 </head>
 
 <body>
+  <div class="topnav">
+  <a class="active" href="#home">Emily Anderson</a>
+  <a class="active" href = "mailto: anderson.emily@orange.fr">anderson.emily@orange.fr</a>
+  <a class="active" target="_blank" href="https://www.instagram.com/phleg.mily/">@phleg.mily</a>
+</div>
 
   <!-- LEFT PANE -->
   <div class="left">
+
     <div class="inner">
+      <div class="popup" id="popup-temp"><p></p></div>
     <div>
-      <img src="images/thumbnails/reiki.jpg" id="reiki" class="menu-item" title="Printed Portrait"/>
-      <img src="images/thumbnails/communication.jpg" id="communication" class="menu-item" title="Catalogue of Communication"/>
-      <img src="images/thumbnails/imagesc.jpg" id="imagesc" class="menu-item"   />
-      <img src="images/thumbnails/laugh.jpg" id="laugh" class="menu-item" />
-      <img src="images/thumbnails/sringari.jpg" id="sringari" class="menu-item" />
-      <img src="images/thumbnails/black.jpg" id="blackh" class="menu-item" />
-      <img src="images/thumbnails/price.jpg" id="price" class="menu-item" />
-      <img src="images/thumbnails/holy.jpg" id="holy" class="menu-item" />
-      <img src="images/thumbnails/1968.jpg" id="1968" class="menu-item" title="1968"/>
-      <img src="images/thumbnails/letterpress.jpg" id="letterpress" class="menu-item" title="Letterpress Book"/>
-      <img src="images/thumbnails/suicide.jpg" id="suicide" class="menu-item" />
-      <img src="images/thumbnails/minfin.jpg" id="minfin" class="menu-item" title="Waxing in, Waning out"/>
 
-      <img src="images/thumbnails/twin.jpg" id="twin" class="menu-item" title="Twin Poster"/>
-      <img src="images/thumbnails/ruins.jpg" id="ruins" class="menu-item" title="In the Forest Ruins"/>
-      <img src="images/thumbnails/tuatahi.jpg" id="tuatahi" class="menu-item" title="Tuatahi"/>
-      <img src="images/thumbnails/google.jpg" id="google" class="menu-item" title="I Can't Google It"/>
-      <img src="images/thumbnails/fet.jpg" id="fet" class="menu-item" title="U.S.A in the F.E.T"/>
-      <img src="images/thumbnails/utopia.jpg" id="utopia" class="menu-item" title="Utopia/ Dystopia"/>
-      <img src="images/thumbnails/devo.jpg" id="devo" class="menu-item" title="D.E.V.O, We are Devo!"/>
-      <img src="images/thumbnails/pillow.jpg" id="pillow" class="menu-item" title="Pillow Talks"/>
-      <img src="images/thumbnails/whole.jpg" id="whole" class="menu-item" title="The whole is less than the sum of its parts"/>
-      <img src="images/thumbnails/meat.jpg" id="meat" class="menu-item" title="Artificial Meat"/>
-      <img src="images/thumbnails/throat.jpg" id="throat" class="menu-item" title="Artificial Voice"/>
-      <div class="empty"></div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/marcel2.jpg" id="reiki" class="menu-item" title="Printed Portrait of a Reiki Master"/><img class="active" src="images/thumbnails/marcel2.gif" id="reiki" class="menu-item" title="Printed Portrait of a Reiki Master"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/communication.jpg" id="communication" class="menu-item" title="Catalogue of Communication"/><img class="active" src="images/thumbnails/communication.gif" id="communication" class="menu-item" title="Catalogue of Communication"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/imgsc.jpg" id="imagesc" class="menu-item" title= "The Forgotten Pleasure of Image Scarcity"/><img class="active" src="images/thumbnails/imagescc.gif" id="imagesc" class="menu-item" title="The Forgotten Pleasure of Image Scarcity"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/revival.jpg" id="revival" class="menu-item" title="Revival of a Renaissance Typeface"/><img class="active" src="images/thumbnails/revival.gif" id="revival" class="menu-item" title="Revival of a Renaissance typeface"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/sringari.jpg" id="sringari" class="menu-item" title="The Official Sringari Survival Guide"/><img class="active" src="images/thumbnails/sringari.gif" id="sringari" class="menu-item"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/price.jpg" id="price" class="menu-item" /><img class="active" src="images/thumbnails/price.gif" id="price" class="menu-item" title="The Price of Dying"/>
+      </div>
 
-      <img src="images/thumbnails/logo.jpg" id="logo" class="menu-item" title="444 logo"/>
-      <img src="images/thumbnails/rewire.jpg" id="rewire" class="menu-item" title="Rewire Festival Flyers"/>
-      <img src="images/thumbnails/human.jpg" id="human" class="menu-item" title="'Do you really think I am human?'"/>
-      <img src="images/thumbnails/kinetic.jpg" id="kinetic" class="menu-item" title="Kinetic Type"/>
-      <img src="images/thumbnails/coin.jpg" id="currency" class="menu-item" title="Currency 2.0"/>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/1968.jpg" id="1968" class="menu-item" title="1968"/><img class="active" src="images/thumbnails/1968.gif" id="1968" class="menu-item" title="1968"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/letterpress.jpg" id="letterpress" class="menu-item" title="Letterpress Book"/><img class="active" src="images/thumbnails/letterpress.gif" id="letterpress" class="menu-item" title="Letterpress Book"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/suicide2.jpg" id="suicide" class="menu-item"/><img class="active" src="images/thumbnails/suicide.gif" id="suicide" class="menu-item" title="Suicide as a Comedy Trope"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/waxing.jpg" id="minfin" class="menu-item" title="Waxing in, Waning out"/><img class="active" src="images/thumbnails/waxing.gif" id="minfin" class="menu-item" title="Waxing in, Waning out"/>
+      </div>
+
+      <div class="cube">
+      <img class="static" src="images/thumbnails/lamm.jpg" id="twin" class="menu-item" title="Twin Poster"/><img class="active" src="images/thumbnails/lamm.gif" id="twin" class="menu-item" title="Twin Poster"/>
+      </div>
+
+      <div class="cube">
+      <img class="static" src="images/thumbnails/google.jpg" id="google" class="menu-item" title="I Can't Google It"/><img class="active" src="images/thumbnails/google.gif" id="google" class="menu-item" title="I Can't Google It"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/secondhand2.jpg" id="secondhand" class="menu-item" /><img class="active" src="images/thumbnails/secondhand2.gif" id="secondhand" class="menu-item" title="Second Hand"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/pillow2.png" id="pillow" class="menu-item" title="Pillow Talks"/><img class="active" src="images/thumbnails/pillowtalks.gif" id="secondhand" class="menu-item" title="Second Hand"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/sum.jpg" id="whole" class="menu-item" title="The whole is less than the sum of its parts"/><img class="active" src="images/thumbnails/sum.gif" id="whole" class="menu-item" title="The whole is less than the sum of its parts"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/meat.jpg" id="meat" class="menu-item" title="Artificial Meat"/><img class="active" src="images/thumbnails/meat.gif" id="secondhand" class="menu-item" title="Second Hand"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/spiky.jpg" id="particulate" class="menu-item" title="Particulate Matters"/><img class="active" src="images/thumbnails/spiky.gif" id="rewire" class="menu-item" title="Rewire Festival Flyers"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/rewire.jpg" id="rewire" class="menu-item" title="Rewire Festival Flyers"/><img class="active" src="images/thumbnails/rewire.gif" id="rewire" class="menu-item" title="Rewire Festival Flyers"/>
+      </div>
+      <div class="cube">
+      <img class="static" src="images/thumbnails/bina.jpg" id="human" class="menu-item" title="'Do you really think I am human?'"/><img class="active" src="images/thumbnails/bina.gif" id="human" class="menu-item" title="'Do you really think I am human?'"/>
+      </div>
+
 
   </div>
   </div>
@@ -215,84 +99,87 @@
   <!-- END LEFT PANE -->
 
   <div class="middle">
-  <div class="popup" id="popup-temp">
-        <img src ="images/misc/loadpage2.png" />
+
+  <div class="popup" id="popup-temp" href="#home">
+        <p style="color: rgb(51, 51, 51); font-size: 46px; font-family: 'PT Serif';">I am an American Graphic Designer from France.
+Based in the Hague.<br>
+I am currently busy in the fields of <a href="">image making</a> and <a href="">motion graphics</a>.</p>
       </div>
 
     <div class="popup" id="popup-reiki">
-      <div class="title">PRINTED PORTRAIT 06.2018</div>
+      <div class="title">PRINTED PORTRAIT <br>06.2018</div>
       <div class="description"><p>
 
-        A sixteen-page publication aiming to capture a conversation that I had with Dutch Reiki Master and healing crystal salesman Marcel Vis. The structure of the publication is based on Marcel’s journey from being healed to becoming a healer. Each spread focuses on the healing of an individual chakra.</p></div>
+        A sixteen-page publication aiming to capture a conversation that I had with Dutch Reiki Master and healing crystal salesman named Marcel Vis. The structure of the publication is based on Marcel’s journey from being healed to becoming a healer. Each spread focuses on the healing of an individual chakra by extracting relevant quotes from our conversation and pairing them with the stones that heal the corresponding chakra.</p></div>
       <div class="content">
-        <img data-src ="images/Books/reiki1.png" />
-        <img data-src ="images/Books/reiki2.png" />
-        <img data-src ="images/Books/reiki3.png" />
-        <img data-src ="images/Books/reiki4.png" />
-        <img data-src ="images/Books/reiki5.png" />
-        <img data-src ="images/Books/reiki6.png" />
-        <img data-src ="images/Books/reiki7.png" />
+        <img data-src ="images/Books/reiki1.jpg" />
+        <img data-src ="images/Books/reiki2.jpg" />
+        <img data-src ="images/Books/reiki3.jpg" />
+        <img data-src ="images/Books/reiki4.jpg" />
+        <img data-src ="images/Books/reiki5.jpg" />
+        <img data-src ="images/Books/reiki6.jpg" />
+        <img data-src ="images/Books/reiki7.jpg" />
+        <img data-src ="images/Books/reiki8.jpg" />
+        <img data-src ="images/Books/reiki9.jpg" />
       </div>
     </div>
 
 <div class="popup" id="popup-communication">
-  <div class="title">CATALOGUE OF COMMUNICATION 05.2018</div>
+  <div class="title">CATALOGUE OF COMMUNICATION <br>05.2018</div>
   <div class="description"><p>
 
   Public space is filled with messages of all kinds written and performed by the individuals that inhabit it. As a result of these instances of self-expression, different forms of written and oral language have been born that have gone unaccounted for in the history of communication. This catalogue is an attempt to record and organize them and give them the attention they deserve.</p></div>
   <div class="content">
-    <img data-src="images/Books/communication.png" />
-    <img data-src="images/Books/communication2.png" />
-    <img data-src="images/Books/communication4.png" />
-    <img data-src="images/Books/communication5.png" />
-    <img data-src="images/Books/communication6.png" />
-    <img data-src="images/Books/communication7.png" />
-    <img data-src="images/Books/communication8.png" />
-    <img data-src="images/Books/communication9.png" />
-    <img data-src="images/Books/communication10.png" />
-    <img data-src="images/Books/communication11.png" />
+    <img data-src="images/Books/communication1.jpg" />
+    <img data-src="images/Books/communication2.jpg" />
+    <img data-src="images/Books/communication3.jpg" />
+    <img data-src="images/Books/communication4.jpg" />
+    <img data-src="images/Books/communication5.jpg" />
+    <img data-src="images/Books/communication6.jpg" />
+    <img data-src="images/Books/communication7.jpg" />
+
   </div>
 </div>
 
 <div class="popup" id="popup-imagesc">
-  <div class="title">THE FORGOTTEN PLEASURE OF IMAGE SCARCITY 11.2017</div>
+  <div class="title">THE FORGOTTEN PLEASURE OF IMAGE SCARCITY <br>11.2017</div>
   <div class="description"><p>
     A collection of exercises about image and text, opened by an extract from Hito Steyerl’s essay of the same name.</p></div>
   <div class="content">
-    <img data-src="images/Books/im.png" />
-    <img data-src="images/Books/im2.png" />
-    <img data-src="images/Books/im3.png" />
-    <img data-src="images/Books/im4.png" />
-    <img data-src="images/Books/im5.png" />
-    <img data-src="images/Books/im6.png" />
-    <img data-src="images/Books/im7.png" />
-    <img data-src="images/Books/im8.png" />
-    <img data-src="images/Books/im9.png" />
-    <img data-src="images/Books/im10.png" />
-    <img data-src="images/Books/im11.png" />
-    <img data-src="images/Books/im12.png" />
+    <img data-src="images/Books/im1.jpg" />
+    <img data-src="images/Books/im2.jpg" />
+    <img data-src="images/Books/im3.jpg" />
+    <img data-src="images/Books/im4.jpg" />
+    <img data-src="images/Books/im5.jpg" />
+    <img data-src="images/Books/im6.jpg" />
+    <img data-src="images/Books/im7.jpg" />
+    <img data-src="images/Books/im8.jpg" />
+    <img data-src="images/Books/im9.jpg" />
+    <img data-src="images/Books/im10.jpg" />
+    <img data-src="images/Books/im11.jpg" />
+    <img data-src="images/Books/im12.jpg" />
   </div>
 </div>
 
-<div class="popup" id="popup-laugh">
-  <div class="title">MAKE EM LAUGH — FIRST ISSUE 06.2018</div>
+<div class="popup" id="popup-revival">
+  <div class="title">Revival of a Historic Typeface <br>04.2019</div>
   <div class="description"><p>
-
-  A catalogue of images and texts that make me laugh.</p></div>
+  Revival of a Historic Typeface</p></div>
   <div class="content">
-    <img data-src="images/Books/laugh.png" />
-    <img data-src="images/Books/laugh2.jpg" />
-    <img data-src="images/Books/laugh3.jpg" />
-    <img data-src="images/Books/laugh4.jpg" />
-    <img data-src="images/Books/laugh5.jpg" />
-    <img data-src="images/Books/laugh6.jpg" />
-    <img data-src="images/Books/laugh7.jpg" />
-    <img data-src="images/Books/laugh4.png" />
+    <img data-src="images/Books/revival1.jpg" />
+    <img data-src="images/Books/revival2.jpg" />
+    <img data-src="images/Books/revival3.jpg" />
+    <img data-src="images/Books/revival4.jpg" />
+    <img data-src="images/Books/revival5.jpg" />
+    <img data-src="images/Books/revival6.jpg" />
+    <img data-src="images/Books/revival7.jpg" />
+    <img data-src="images/Books/revival8.jpg" />
+    <img data-src="images/Books/revival9.jpg" />
   </div>
 </div>
 
 <div class="popup" id="popup-sringari">
-  <div class="title">THE OFFICIAL SRINGARI SURVIVAL GUIDE 12.2016</div>
+  <div class="title">THE OFFICIAL SRINGARI SURVIVAL GUIDE</div>
   <div class="description"><p>
 
   Collaboration with <a href="http://nedkamburov.com/" target="_blank">Nedislav Kamburov</a>. This publication was created solely using the content of four books: Wilder Mann:
@@ -302,67 +189,32 @@
   4. Not A toy, José Teunissen (2011).
   The result is a pocket phrasebook for a dangerous faraway planet.</p></div>
   <div class="content">
-    <img data-src="images/Books/sringari.png" />
-    <img data-src="images/Books/sringari2.png" />
-    <img data-src="images/Books/sringari3.png" />
-    <img data-src="images/Books/sringari4.png" />
-    <img data-src="images/Books/sringari5.png" />
-    <img data-src="images/Books/sringari6.png" />
-    <img data-src="images/Books/sringari7.png" />
-    <img data-src="images/Books/sringari8.png" />
-    <img data-src="images/Books/sringari9.png" />
-    <img data-src="images/Books/sringari10.png" />
-    <img data-src="images/Books/sringari11.png" />
-    <img data-src="images/Books/sringari12.png" />
-    <img data-src="images/Books/sringari13.png" />
-    <img data-src="images/Books/sringari14.png" />
-    <img data-src="images/Books/sringari15.png" />
+    <img data-src="images/Books/sringari.jpg" />
+    <img data-src="images/Books/sringari2.jpg" />
+    <img data-src="images/Books/sringari3.jpg" />
+    <img data-src="images/Books/sringari4.jpg" />
+    <img data-src="images/Books/sringari5.jpg" />
+    <img data-src="images/Books/sringari6.jpg" />
+    <img data-src="images/Books/sringari7.jpg" />
+    <img data-src="images/Books/sringari8.jpg" />
+    <img data-src="images/Books/sringari9.jpg" />
+    <img data-src="images/Books/sringari10.jpg" />
+    <img data-src="images/Books/sringari11.jpg" />
+    <img data-src="images/Books/sringari12.jpg" />
+    <img data-src="images/Books/sringari13.jpg" />
+    <img data-src="images/Books/sringari14.jpg" />
+    <img data-src="images/Books/sringari15.jpg" />
   </div>
 </div>
 
-<div class="popup" id="popup-blackh">
-  <div class="title">BLACK HOLES AND REVELATIONS 04.2017</div>
-  <div class="description"><p>
-
-  This publication was made with the intension of connecting and exploring 6 seemingly unrelated topics. A physical version of the ‘Six Degrees of Separation’ concept. Within each chapter, superficial information is seperated by a physical hole from darker and more in-depth information.
-  The six topics are:
-
-  1. Black Holes
-
-  2. Muse
-
-  3. Zentai
-
-  4. Lucha Libre
-
-  5. Berthold Brecht
-
-  6. Catharsis.</p></div>
-  <div class="content">
-    <img data-src="images/Books/blackh.png" />
-    <img data-src="images/Books/blackh2.png" />
-    <img data-src="images/Books/blackh3.png" />
-    <img data-src="images/Books/blackh4.png" />
-    <img data-src="images/Books/blackh6.png" />
-    <img data-src="images/Books/blackh7.png" />
-    <img data-src="images/Books/blackh10.png" />
-    <img data-src="images/Books/blackh11.png" />
-    <img data-src="images/Books/blackh12.png" />
-    <img data-src="images/Books/blackh13.png" />
-    <img data-src="images/Books/blackh14.png" />
-    <img data-src="images/Books/blackh15.png" />
-    <img data-src="images/Books/blackh16.png" />
-    <img data-src="images/Books/blackh17.png" />
-  </div>
-</div>
 
 <div class="popup" id="popup-price">
-  <div class="title">THE PRICE OF DYING 12.2018</div>
+  <div class="title">THE PRICE OF DYING <br>12.2018</div>
   <div class="description"><p>
 
   What would you like to have happen to your body when you die? In the Netherlands, there are currently only two legal options: cremation or burial. No matter what, when you die, someone will be paying money to dispose of your body, whether it's your family, your friends, your community or your country. This publication explores the particularities of the Dutch funerary environment and its current costs and laws. Collaboration with ANastasiia Umpuleva.</p></div>
   <div class="content">
-    <img data-src="images/Books/price.jpg" />
+    <img data-src="images/Books/price1.jpg" />
     <img data-src="images/Books/price2.jpg" />
     <img data-src="images/Books/price3.jpg" />
     <img data-src="images/Books/price4.jpg" />
@@ -374,7 +226,7 @@
     <img data-src="images/Books/price10.jpg" />
     <img data-src="images/Books/price11.jpg" />
     <img data-src="images/Books/price12.jpg" />
-    <img data-src="images/Books/price13.jpg" />
+
   </div>
 </div>
 
@@ -401,87 +253,88 @@
 </div>
 
 <div class="popup" id="popup-suicide">
-  <div class="title">SUICIDE AS A COMEDY TROPE 05.2018</div>
+  <div class="title">SUICIDE AS A COMEDY TROPE <br>05.2018</div>
   <div class="description"><p>
 
   The following publication contains a collection of excerpts of scripts from recent comedy movies that include suicide themed jokes. Can jokes about suicide be funny, or should they be avoided at all costs? <a href="https://www.youtube.com/watch?v=300Q0_B1uYc">https://www.youtube.com/watch?v=300Q0_B1uYc</a></p>
 </div>
   <div class="content">
-    <img data-src="images/Books/suicide.jpg" />
+    <img data-src="images/Books/suicide1.jpg" />
     <img data-src="images/Books/suicide2.jpg" />
     <img data-src="images/Books/suicide3.jpg" />
     <img data-src="images/Books/suicide4.jpg" />
     <img data-src="images/Books/suicide5.jpg" />
     <img data-src="images/Books/suicide6.jpg" />
+    <img data-src="images/Books/suicide7.jpg" />
   </div>
 </div>
 
 <div class="popup" id="popup-letterpress">
-  <div class="title">LETTERPRESS 03.2015</div>
+  <div class="title">LETTERPRESS <br>03.2015</div>
   <div class="description"><p>
     A small book of letterpress experiments.
   </p></div>
   <div class="content">
-    <img data-src="images/Books/letterpress.jpg" />
     <img data-src="images/Books/letterpress1.jpg" />
     <img data-src="images/Books/letterpress2.jpg" />
     <img data-src="images/Books/letterpress3.jpg" />
     <img data-src="images/Books/letterpress4.jpg" />
     <img data-src="images/Books/letterpress5.jpg" />
+    <img data-src="images/Books/letterpress6.jpg" />
+    <img data-src="images/Books/letterpress7.jpg" />
+    <img data-src="images/Books/letterpress8.jpg" />
+    <img data-src="images/Books/letterpress9.jpg" />
+    <img data-src="images/Books/letterpress10.jpg" />
   </div>
 </div>
 
 
 <div class="popup" id="popup-1968">
-  <div class="title">1968 05.2017 </div>
+  <div class="title">1968 <br>05.2017 </div>
   <div class="description"><p>
 
   Collaborative work with: Selina Landis, Michelle Janssen & Emma Benozzi. Our project revolved around the theme of equality in 1968 and Martha Rosler's series of collages entitled 'House Beautiful: Bringing the War Home'. We designed the three key sources that we read in order to write our essay.</p></div>
   <div class="content">
-    <img data-src="images/Books/1968.jpg" />
-    <img data-src="images/Books/19685.jpg" />
-    <img data-src="images/Books/19684.jpg" />
-    <img data-src="images/Books/19683.jpg" />
-    <img data-src="images/Books/19686.jpg" />
-    <img data-src="images/Books/19687.jpg" />
-    <img data-src="images/Books/19688.jpg" />
-    <img data-src="images/Books/19689.jpg" />
-    <img data-src="images/Books/196810.jpg" />
-    <img data-src="images/Books/196811.jpg" />
-    <img data-src="images/Books/196812.jpg" />
-    <img data-src="images/Books/196813.jpg" />
-    <img data-src="images/Books/196814.jpg" />
-    <img data-src="images/Books/196815.jpg" />
-    <img data-src="images/Books/196816.jpg" />
-    <img data-src="images/Books/196817.jpg" />
+    <img data-src="images/Books/homefront1.jpg" />
+    <img data-src="images/Books/homefront2.jpg" />
+    <img data-src="images/Books/homefront3.jpg" />
+    <img data-src="images/Books/homefront4.jpg" />
+    <img data-src="images/Books/homefront5.jpg" />
+    <img data-src="images/Books/homefront6.jpg" />
+    <img data-src="images/Books/homefront7.jpg" />
+    <img data-src="images/Books/homefront8.jpg" />
+    <img data-src="images/Books/homefront9.jpg" />
+    <img data-src="images/Books/homefront10.jpg" />
+    <img data-src="images/Books/homefront11.jpg" />
+    <img data-src="images/Books/homefront12.jpg" />
+    <img data-src="images/Books/homefront13.jpg" />
   </div>
 </div>
 
 <div class="popup" id="popup-minfin">
-  <div class="title">WAXING IN, WANING OUT 03.2019</div>
+  <div class="title">WAXING IN, WANING OUT <br>03.2019</div>
   <div class="description"><p>
 
   </p></div>
   <div class="content">
-    <img data-src="images/Books/minfin.jpg" />
-    <img data-src="images/Books/minfin1.jpg" />
-    <img data-src="images/Books/minfin2.jpg" />
+    <img data-src="images/Books/minfinn.jpg" />
+    <img data-src="images/Books/minfinn2.jpg" />
   </div>
 </div>
 
 <div class="popup" id="popup-twin">
-  <div class="title">TWIN POSTER 05.2017</div>
+  <div class="title">TWIN POSTER <br>05.2017</div>
   <div class="description"><p>
 
   This ‘Twin Poster’ was made solely using the same components as the original poster. Original poster by Lamm & Kirch.</p></div>
   <div class="content">
-    <img data-src="images/Posters/twin.png" />
-    <img data-src="images/Posters/twin3.png" />
+    <img data-src="images/Posters/twin3.jpg" />
+    <img data-src="images/Posters/twin.jpg" />
   </div>
 </div>
 
 <div class="popup" id="popup-ruins">
-  <div class="title">IN THE FOREST RUINS 06.2017</div>
+  <div class="title">IN THE FOREST RUINS <br>06.2017</div>
   <div class="description"><p>
 
   This poster was made to promote the lecture by Paulo Tavares concerning deforestation and the Anthoposcene.</p></div>
@@ -491,7 +344,7 @@
 </div>
 
 <div class="popup" id="popup-tuatahi">
-  <div class="title">TUATAHI 11.2018</div>
+  <div class="title">TUATAHI <br>11.2018</div>
   <div class="description"><p>
     A poster for a fictional perfume designed by Thierry Muegler. There are two versions of this poster; one effect-based and a minimalistic one.
   </p></div>
@@ -503,7 +356,7 @@
 </div>
 
 <div class="popup" id="popup-google">
-  <div class="title">I CAN'T GOOGLE IT 10.2018</div>
+  <div class="title">I CAN'T GOOGLE IT <br>10.2018</div>
   <div class="description"><p>
 
   A collaboration with <a href="http://nicolaischmelling.tumblr.com/ target="_blank"">Nicolai Schmelling</a> promoting a lecture by Eva Verberne for the KABK’s interior architecture department.</p></div>
@@ -512,78 +365,48 @@
   </div>
 </div>
 
-<div class="popup" id="popup-fet">
-  <div class="title">U.S.A. IN THE F.E.T 05.2015</div>
+
+
+<div class="popup" id="popup-secondhand">
+  <div class="title">D.E.V.O, WE ARE DEVO! <br>10.2016</div>
   <div class="description"><p>
-
-  The 'Red Thread' which connects each country within the F.E.T time zone is U.S. intervention. This poster was made to accompany a publication exploring just how deeply the United states has been involved in each of these countries and what effects their presence has had.</p></div>
-  <div class="content">
-    <img data-src="images/Posters/fet.png" />
-  </div>
-</div>
-
-<div class="popup" id="popup-utopia">
-  <div class="title">UTOPIA/DYSTOPIA 09.2016</div>
-  <div class="description"><p>
-
-Which of the two will the future be?</p></div>
-  <div class="content">
-    <img data-src="images/Posters/utopia.png" />
-  </div>
-</div>
-
-<div class="popup" id="popup-devo">
-  <div class="title">D.E.V.O, WE ARE DEVO! 10.2016</div>
-  <div class="description"><p>
-
   A series of posters designed around images that were generated using Processing.</p></div>
   <div class="content">
-    <img data-src="images/Posters/devo.png" />
-    <img data-src="images/Posters/devo2.png" />
-    <img data-src="images/Posters/devo3.png" />
-    <img data-src="images/Posters/devo4.png" />
+    <img data-src="images/Posters/secondhand.jpg" />
   </div>
 </div>
 
 <div class="popup" id="popup-pillow">
-  <div class="title">PILLOW TALKS 12.2018</div>
+  <div class="title">PILLOW TALKS <br>12.2018</div>
   <div class="description"><p>
-
   A poster for an event hosted by Gert Dumbar at the Royal Academy of Art in the Hague. The design was silkscreened onto 65 pillowcases and attendees were asked to bring their own pillows to complete the event’s full slumber party/ porn set potential.</p></div>
   <div class="content">
-    <img data-src="images/Posters/pillowtalks.png" />
-      <img data-src="images/Posters/pillowc.png" />
-
+    <img data-src="" />
+      <img data-src="images/Posters/pillowtalks2.jpg" />
+      <img data-src="images/Posters/pillowtalks3.jpg" />
   </div>
 </div>
 
-<div class="popup" id="popup-kinetic">
-  <div class="title">KINETIC TYPE 10.2018</div>
-  <div class="description"><p>
-
-  A series of experiments from a workshop hosted by Mitch Paone from <a href="https://www.instagram.com/dia_studio/" target="_blank">Dia Studios</a>.</p></div>
-  <div class="content">
-    <img data-src="images/Posters/A43c.gif" />
-    <img data-src="images/Posters/eight.gif" />
-    <img data-src="images/Posters/care.gif" />
-    <img data-src="images/Posters/none.gif" />
-  </div>
-</div>
 
 <!-- END POSTERS, start misc -->
-<div class="popup" id="popup-logo">
-  <div class="title">444 10.2018</div>
+
+
+<div class="popup" id="popup-particulate">
+  <div class="title">PARTICULATE MATTERS <br>06.2020</div>
   <div class="description"><p>
 
-  An animated logo for Leiden University's 444th birthday.</p></div>
-  <div class="content">
-      <img data-src="images/misc/logo.gif" />
+    Is there a better feeling than breathing clean, fresh air straight out of the Dyson Pure Cool TP01?
 
+  As clean air becomes scarcer, more products claiming to restore air quality are entering the market. <i>Particulate Matters</i> explores the commodification of clean air by studying the language of air-purifier commercials. In this project, CGI mascots of ‘good’ and ‘bad’ air particles have been directly extracted from different air-purifier commercials. The air particles have been personified with scripted speaking roles. By re-contextualizing the virtually branded air-particles, ‘Particulate Matters’ aims to reveal the overlapping lexicons of cleanliness and right-wing speech and highlight the sombre reality that air purifiers are masking.</p></div>
+  <div class="content">
+    <iframe src="https://player.vimeo.com/video/448287131" width="100%" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <img data-src="images/misc/particles.jpg" />
   </div>
 </div>
 
+
 <div class="popup" id="popup-rewire">
-  <div class="title">REWIRE 10.2016</div>
+  <div class="title">REWIRE <br>10.2016</div>
   <div class="description"><p>
 
   The outcome of a series of flyers designed within strict restrictions.</p></div>
@@ -593,32 +416,20 @@ Which of the two will the future be?</p></div>
 </div>
 
 <div class="popup" id="popup-human">
-  <div class="title">'DO YOU REALLY THINK I AM HUMAN?' 05.2017</div>
+  <div class="title">'DO YOU REALLY THINK I AM HUMAN?' <br>05.2017</div>
   <div class="description"><p>
 
   A digital illustration for the collaborative publication ‘Questioning answers’. This piece was based on an interview conducted between Bina Rothblatt and her robotic counterpart, Bina 48.</p></div>
   <div class="content">
-    <img data-src="images/misc/human.png" />
-    <img data-src="images/Books/doyou.png" />
+    <img data-src="images/posters/human.jpg" />
+    <img data-src="images/posters/QA.jpg" />
   </div>
 </div>
 
-<div class="popup" id="popup-currency">
-  <div class="title">MONEY 2.0 03.2017</div>
-  <div class="description"><p>
 
-  A crypto-loading symbol.</p></div>
-  <div class="content">
-    <img data-src="images/misc/coin.gif" />
-    <img data-src="images/misc/coin2.gif" />
-    <img data-src="images/misc/coin3.gif" />
-    <img data-src="images/misc/coin4.gif" />
-    <img data-src="images/misc/coin.jpg" />
-  </div>
-</div>
 
 <div class="popup" id="popup-whole">
-  <div class="title">THE WHOLE IS LESS THAN THE SUM OF ITS PARTS 10.2017</div>
+  <div class="title">THE WHOLE IS LESS THAN THE SUM OF ITS PARTS <br>10.2017</div>
   <div class="description"><p>
 
   A poster designed to accompany a publication exploreing the theme of bacteria.</p></div>
@@ -629,25 +440,13 @@ Which of the two will the future be?</p></div>
 
 
 <div class="popup" id="popup-meat">
-  <div class="title">IN VITRO MEAT, IN VITRO DIAMONDS 02.2019</div>
+  <div class="title">IN VITRO MEAT, IN VITRO DIAMONDS <br>02.2019</div>
   <div class="description"><p>
-    An illustration of an ethical future.
+    In the future, everything that can be ethically made will be ethically made.
   </p>
   </div>
   <div class="content">
     <img data-src="images/Posters/meat.jpg" />
-  </div>
-</div>
-
-<div class="popup" id="popup-throat">
-  <div class="title">ARTIFICIAL VOICES 02.2019</div>
-  <div class="description"><p>
-
-In the future, you don't have to talk to anyone that you don't want to.
-  </p>
-  </div>
-  <div class="content">
-    <img data-src="images/Posters/throat.jpg" />
   </div>
 </div>
 
@@ -660,17 +459,9 @@ In the future, you don't have to talk to anyone that you don't want to.
   <div class="right-pane first">
     <div class="information"></div>
   </div>
-
-  <div class="right-pane third">
-    <div class="information"><p>
-
-       Hi! My name is Emily Anderson, I'm an American Graphic Designer from France. I am currently studying at the Royal Academy of Art in The Hague.</p>
-    </div>
-  </div>
 </div>
 
 
--->
 <!-- END RIGHT PANE -->
 
 

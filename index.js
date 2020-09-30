@@ -1,7 +1,17 @@
-var thumbs = $( ".left img" );
+var thumbs = $( ".left img");
 var popups = $( ".middle > div" );
 
 //
+
+$(document).ready(function(){
+    $('a').on('click',function(){
+        var aID = $(this).attr('href');
+        var elem = $(''+aID).html();
+
+        $('.target').html(elem);
+    });
+});
+
 function openDetails( ) {
 	var thumb = $( this );
 	thumb.addClass( "selected" );
@@ -31,4 +41,5 @@ function openDetails( ) {
 	// $("#description").text(about);
 }
 thumbs.click( openDetails );
+
 			//.first( ).trigger( "click" );
